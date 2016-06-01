@@ -1,6 +1,9 @@
 source 'https://rubygems.org'
 
 gem 'rails',        '4.2.2'
+gem 'bcrypt'
+# by hashing the password with bcrypt, we ensure the attacker will not be able to log in
+# even if they obtain a copy of the database.
 gem 'bootstrap-sass'
 gem 'sass-rails',   '5.0.2'
 gem 'uglifier',     '2.5.3'
