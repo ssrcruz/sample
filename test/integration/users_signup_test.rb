@@ -17,9 +17,9 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
   test 'valid signup information' do # the post_via_redirect method arranges to follow the redirect after submission
     get signup_path
     assert_difference 'User.count', 1 do
-      post_via_redirect users_path, user: { name: "Ruben"
-                                            email: "cruz14@gmail.com"
-                                            password: "chavezcruz"
+      post_via_redirect users_path, user: { name: "Ruben",
+                                            email: "cruz14@gmail.com",
+                                            password: "chavezcruz",
                                             password_confirmation: "chavezcruz" }
     end
     assert_template 'users/show' # this also tests if the page renders if the signup is successful
