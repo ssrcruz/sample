@@ -10,7 +10,8 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params) # this method creates a user with the required attributes
-    if @user.save                 # and saves them
+    if @user.save # and saves them
+      log_in @user
       flash[:success] = "Welcome to the Sample App!" # Once it saves, a flash message will appear
       redirect_to @user # and redirect you to the user profile page
     else
