@@ -5,6 +5,9 @@ gem 'bcrypt'
 # by hashing the password with bcrypt, we ensure the attacker will not be able to log in
 # even if they obtain a copy of the database.
 gem 'bootstrap-sass'
+gem 'faker'
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
 gem 'sass-rails',   '5.0.2'
 gem 'uglifier',     '2.5.3'
 gem 'coffee-rails', '4.1.0'

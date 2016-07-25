@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   validates :email, presence: true, length: {maximum: 256}, format: { with: VALID_EMAIL_REGEX }, uniqueness: {case_sensitive: false}
   has_secure_password # adds functionality: saves securely hashed with password_digest, password and password_confirmation,
                       # authenticate method - determines if the password is valid
-  validates :password, presence: true, length: {minimum: 6}
+  validates :password, presence: true, length: {minimum: 6}, allow_nil: true
   # lines 3 - 9 contain the complete implementation for secure passwords.
   # password_digest is the hashed version of the password, since it is constructed using bcrypt gem,
   # it is computationally impractical to use the digest to discover the original password.
