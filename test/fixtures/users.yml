@@ -4,21 +4,29 @@ slothboy:
   email: slothboy@gmail.com
   password_digest: <%= User.digest('password') %>
   admin: true
+  activated: true
+  activated_at: Time.zone.now
 
 grizzlyman:
   name: Grizzly Man Bear
   email: grizzlyman@gmail.com
   password_digest: <%= User.digest('password') %>
+  activated: true
+  activated_at: Time.zone.now
 
 insubordinatedog:
   name: Black Jack the insubordinate dog
   email: insubordinateworld@gmail.com
   password_digest: <%= User.digest('password') %>
+  activated: true
+  activated_at: Time.zone.now
 
 malory:
   name: Malory Archer
   email: boss@example.gov
   password_digest: <%= User.digest('password') %>
+  activated: true
+  activated_at: Time.zone.now
 
 <% 30.times do |n| %>
 user_<%= n %>:
