@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   # self refers to the current user
+  has_many :microposts, dependent: :destroy # here the dependent and destroy make sure that the posts get deleted when a user is destroyed
   attr_accessor :remember_token, :activation_token, :reset_token # an accessible attribute has been created
   before_save :downcase_email
   before_create :create_activation_digest
@@ -73,6 +74,10 @@ class User < ActiveRecord::Base
   # returns true if password_reset has expired
   def password_reset_expired?
     reset_sent_at < 2.hours.ago
+  end
+
+  def feed
+    Micropost.where("user_id = ?", id)
   end
 
   private

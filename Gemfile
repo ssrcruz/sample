@@ -9,6 +9,9 @@ gem 'faker'
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
 gem 'sass-rails',   '5.0.2'
+gem 'carrierwave'            # interface for ImageMagick
+gem 'mini_magick'            # used to resize image
+gem 'fog',          '1.36.0' # used to configure cloud storage in production
 gem 'uglifier',     '2.5.3'
 gem 'coffee-rails', '4.1.0'
 gem 'jquery-rails', '4.0.3'

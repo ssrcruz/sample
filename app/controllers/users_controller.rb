@@ -13,6 +13,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id]) # retrieves user from the database using params method
+    @microposts = @user.microposts.paginate(page: params[:page])
     # debugger - byebug is a powerful method for tracking down applications errors and interactively debugging your app
   end
 
@@ -48,15 +49,6 @@ class UsersController < ApplicationController
     User.find(params[:id]).destroy
     flash[:danger] = "Deleted user."
     redirect_to users_url
-  end
-
-  # confirms a logged-in user
-  def logged_in_user
-    unless logged_in?
-      store_location
-      flash[:danger] = "Please log in."
-      redirect_to login_url
-    end
   end
 
   # confirms the correct user
