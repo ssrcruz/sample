@@ -8,8 +8,8 @@ class UsersControllerTest < ActionController::TestCase
   end
 
   def setup
-      @user = users(:slothboy)
-      @other_user = users(:grizzlyman)
+    @user = users(:slothboy)
+    @other_user = users(:grizzlyman)
   end
 
   test 'should redirect edit if not logged in' do
@@ -58,4 +58,13 @@ class UsersControllerTest < ActionController::TestCase
     assert_redirected_to root_url
   end
 
+  test 'should redirect following when not logged in' do
+    get :following, id: @user
+    assert_redirected_to login_url
+  end
+
+  test 'should redirect followers when not logged in' do
+    get :followers, id: @user
+    assert_redirected_to login_url
+  end
 end
